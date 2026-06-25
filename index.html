@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pit Happens • Official Tees</title>
+    <title>Official Pit Happens Apparel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -20,8 +20,8 @@
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-purple-700 rounded-xl flex items-center justify-center text-white font-bold text-2xl">P</div>
                 <div>
-                    <h1 class="text-2xl font-bold">Pit Happens</h1>
-                    <p class="text-xs text-gray-500 -mt-1">Price Hill Panthers</p>
+                    <h1 class="text-2xl font-bold">Official Pit Happens Apparel</h1>
+                    <p class="text-xs text-gray-500 -mt-1">Price Hill Pride</p>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                 <!-- Left Sticky Preview & Color Picker -->
                 <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
                     <div class="bg-white p-6 rounded-3xl shadow">
-                        <h3 class="text-lg font-semibold mb-3 text-gray-700">1. Choose Color Option</h3>
+                        <h3 class="text-lg font-semibold mb-3 text-gray-700">1. Choose Style Option</h3>
                         <div class="flex flex-col gap-3">
                             <button onclick="changeColor(0)" id="btn-color-0" class="w-full text-left py-3 px-4 border-2 border-purple-600 rounded-xl font-medium bg-purple-50 text-purple-900 transition text-sm flex items-center justify-between">
                                 <span class="flex items-center gap-2">
@@ -77,13 +77,19 @@
                                 <span class="flex items-center gap-2">
                                     <span class="w-4 h-4 bg-white rounded-full inline-block border border-gray-300"></span> White Option
                                 </span>
-                                <span class="text-xs text-gray-500">Purple Image & Letters</span>
+                                <span class="text-xs text-gray-500">Purple Letters/Image</span>
                             </button>
                             <button onclick="changeColor(2)" id="btn-color-2" class="w-full text-left py-3 px-4 border border-gray-300 rounded-xl font-medium bg-white text-gray-700 hover:bg-gray-50 transition text-sm flex items-center justify-between">
                                 <span class="flex items-center gap-2">
-                                    <span class="w-4 h-4 bg-black rounded-full inline-block border"></span> Black Option
+                                    <span class="w-4 h-4 bg-black rounded-full inline-block border border-gray-300"></span> Black Option
                                 </span>
-                                <span class="text-xs text-gray-500">White/Purple Back Print</span>
+                                <span class="text-xs text-gray-500">White/Purple Graphics</span>
+                            </button>
+                            <button onclick="changeColor(3)" id="btn-color-3" class="w-full text-left py-3 px-4 border border-gray-300 rounded-xl font-medium bg-white text-gray-700 hover:bg-gray-50 transition text-sm flex items-center justify-between">
+                                <span class="flex items-center gap-2">
+                                    <span class="w-4 h-4 bg-gray-400 rounded-full inline-block border border-gray-300"></span> Special Edition
+                                </span>
+                                <span class="text-xs text-gray-500">Where Pit Happens</span>
                             </button>
                         </div>
                     </div>
@@ -168,20 +174,21 @@
     <script>
         let currentColor = 0;
         
-        // Load saved counters from the browser if they exist, otherwise default to 47 and 12
         let totalShirts = localStorage.getItem('pit_totalShirts') ? parseInt(localStorage.getItem('pit_totalShirts')) : 47;
         let batchShirts = localStorage.getItem('pit_batchShirts') ? parseInt(localStorage.getItem('pit_batchShirts')) : 12;
 
         const shirtImages = [
             "https://i.postimg.cc/R0thSzgF/Pit.jpg",
-            "https://via.placeholder.com/400x400/ffffff/4c1d95?text=White+Shirt+(Purple+Graphics)", 
-            "https://via.placeholder.com/400x400/111827/ffffff?text=Black+Shirt+(White%26Purple+Back+Design)" 
+            "https://i.postimg.cc/J44FNJdL/white-pit-happens.jpg", 
+            "https://i.postimg.cc/vBFjfNCn/black-pit-happens.jpg",
+            "https://i.postimg.cc/VkJHTw8T/price-hill.jpg"
         ];
 
         const shirtDescriptions = [
             "Viewing: Classic Purple Team Edition",
             "Viewing: White Variant (with Purple letters and image)",
-            "Viewing: Black Variant (with White letters & White/Purple image on back)"
+            "Viewing: Black Variant (with White letters & White/Purple image on back)",
+            "Viewing: Special Edition Price Hill - Where Pit Happens"
         ];
 
         (function() {
@@ -193,7 +200,7 @@
             document.getElementById('main-shirt').src = shirtImages[n];
             document.getElementById('variant-description').textContent = shirtDescriptions[n];
             
-            for(let i=0; i<3; i++) {
+            for(let i=0; i<4; i++) {
                 const btn = document.getElementById(`btn-color-${i}`);
                 if(i === n) {
                     btn.classList.add('border-purple-600', 'bg-purple-50', 'text-purple-900');
@@ -219,7 +226,6 @@
             totalShirts = parseInt(document.getElementById('admin-total').value) || 0;
             batchShirts = parseInt(document.getElementById('admin-batch').value) || 0;
             
-            // Save to local device storage
             localStorage.setItem('pit_totalShirts', totalShirts);
             localStorage.setItem('pit_batchShirts', batchShirts);
             
@@ -248,8 +254,8 @@
                             <option value="M">M</option>
                             <option value="L">L</option>
                             <option value="XL" selected>XL</option>
-                            <option value="XXL">XXL (+$2.50)</option>
-                            <option value="XXXL">XXXL (+$2.50)</option>
+                            <option value="XXL">XXL (+$2.00)</option>
+                            <option value="XXXL">XXXL (+$2.00)</option>
                         </select>
                     </div>
                     <div>
@@ -258,7 +264,7 @@
                     </div>
                     <div>
                         <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1">Item Total</label>
-                        <div class="price-display px-3 py-2.5 border border-transparent rounded-xl bg-gray-200 font-mono text-center text-sm font-semibold text-gray-700">$20.00</div>
+                        <div class="price-display px-3 py-2.5 border border-transparent rounded-xl bg-gray-200 font-mono text-center text-sm font-semibold text-gray-700">$25.00</div>
                     </div>
                 </div>
             `;
@@ -274,7 +280,7 @@
                 if (isNaN(qty) || qty < 1) qty = 1; 
                 
                 const size = row.querySelector('select').value;
-                const price = (size === 'XXL' || size === 'XXXL') ? 22.5 : 20;
+                const price = (size === 'XXL' || size === 'XXXL') ? 27 : 25;
                 
                 const lineTotal = price * qty;
                 row.querySelector('.price-display').textContent = '$' + lineTotal.toFixed(2);
@@ -288,7 +294,7 @@
             const lastName = document.getElementById('last-name').value.trim();
             const name = `${firstName} ${lastName}`.trim() || "Anonymous Panther";
             const email = document.getElementById('email').value.trim();
-            const colorName = ["Purple", "White", "Black"][currentColor];
+            const colorName = ["Purple", "White", "Black", "Special Edition"][currentColor];
             
             let items = [];
             document.querySelectorAll('.item-row').forEach(row => {
@@ -297,7 +303,7 @@
                 if (qty > 0) items.push({size, qty});
             });
             
-            const total = items.reduce((sum, item) => sum + ((item.size === 'XXL' || item.size === 'XXXL') ? 22.5 : 20) * item.qty, 0);
+            const total = items.reduce((sum, item) => sum + ((item.size === 'XXL' || item.size === 'XXXL') ? 27 : 25) * item.qty, 0);
             return {name, email, color: colorName, items, total};
         }
 
@@ -345,4 +351,3 @@
     </script>
 </body>
 </html>
-
